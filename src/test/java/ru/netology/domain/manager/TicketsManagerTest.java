@@ -40,7 +40,6 @@ class TicketsManagerTest {
       //  manager.findAll("SVX", "BCN", (Comparator.comparing(information -> information.getTime())));
         TicketsInformation[] expected = TicketsInformation[]{first, second, third, fourth};
         TicketsInformation[] actual = repository.getAll();
-
         assertArrayEquals(expected, actual);
     }
 }
