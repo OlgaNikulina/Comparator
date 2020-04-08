@@ -6,6 +6,7 @@ import ru.netology.domain.TicketsInformation;
 import ru.netology.domain.repository.TicketsRepository;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,7 +34,10 @@ class TicketsManagerTest {
     @Test
     void shouldFindIfMatchesQuery(String search) {
         TicketsInformation[] result = new TicketsInformation[]{first, second, fourth, third};
-        manager.findAll("SVX", "BCN");
+        manager.findAll("SVX", "BCN", (information, t1) -> (information.getPrice()));
+        manager.findAll("SVX", "BCN", (information, t1) -> (information.getTime()));
+       // manager.findAll("SVX", "BCN", (Comparator.comparing(information -> information.getPrice())));
+      //  manager.findAll("SVX", "BCN", (Comparator.comparing(information -> information.getTime())));
         TicketsInformation[] expected = TicketsInformation[]{first, second, third, fourth};
         TicketsInformation[] actual = repository.getAll();
 
