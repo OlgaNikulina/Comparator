@@ -1,4 +1,4 @@
-package ru.netology.domain.repository;
+package ru.netology.repository;
 
 import ru.netology.domain.TicketsInformation;
 
@@ -15,7 +15,6 @@ public class TicketsRepository {
     }
 
     public TicketsInformation[] getAll() {
-        TicketsInformation[] items = new TicketsInformation[0];
         TicketsInformation[] result = new TicketsInformation[items.length];
         for (int i = 0; i < result.length; i++) {
             int index = items.length - i;
