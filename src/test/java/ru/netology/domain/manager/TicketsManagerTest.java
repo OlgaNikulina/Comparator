@@ -3,16 +3,14 @@ package ru.netology.domain.manager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.TicketsInformation;
-import ru.netology.domain.repository.TicketsRepository;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TicketsManagerTest {
-    private TicketsRepository repository;
-    private TicketsManager manager;
+    private ru.netology.repository.TicketsRepository repository;
+    private ru.netology.manager.TicketsManager manager;
 
     private TicketsInformation first = new TicketsInformation(1, 2000, "SVX", "BCN", 500);
     private TicketsInformation second = new TicketsInformation(2, 3000, "SVX", "BCN", 400);
