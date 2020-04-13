@@ -1,4 +1,4 @@
-package ru.netology.domain.corparator;
+package ru.netology.domain.comparator;
 
 import ru.netology.domain.TicketsInformation;
 
@@ -8,7 +8,7 @@ public class TicketByTimeAscComparator implements Comparator<TicketsInformation>
 
 
     @Override
-    public int compare(TicketsInformation information, TicketsInformation t1) {
-        return t1.getTime() - information.getTime();
+    public int compare(TicketsInformation t1, TicketsInformation t2) {
+        return t2.getTime() - t1.getTime();
     }
 }
