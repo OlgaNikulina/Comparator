@@ -1,16 +1,13 @@
-package ru.netology.domain.manager;
+package ru.netology.repository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.TicketsInformation;
 import ru.netology.manager.TicketsManager;
-import ru.netology.repository.TicketsRepository;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TicketsManagerTest {
+class TicketsRepositoryTest {
     private TicketsRepository repository = new TicketsRepository();
     private TicketsManager manager = new TicketsManager(repository);
     private TicketsManager[] ticket = new TicketsManager[]{};
@@ -20,35 +17,27 @@ class TicketsManagerTest {
     private TicketsInformation third = new TicketsInformation(3, 4000, "SVX", "DME", 360);
     private TicketsInformation fourth = new TicketsInformation(4, 4500, "SVX", "BCN", 360);
 
-    @Test
-    void shouldFindIfMatchesQuery(String search) {
-
-        String from = "SVX";
-        String to = "BCN";
-
+    @BeforeEach
+    public void shouldSetUp() {
         repository.add(first);
         repository.add(second);
         repository.add(third);
         repository.add(fourth);
+    }
 
-        TicketsInformation[] expected = new TicketsInformation[]{first, fourth};
-        TicketsInformation[] actual = manager.findAll(from, to);
+    @Test
+    void shouldGetFour() {
 
+        TicketsInformation[] expected = new TicketsInformation[]{first, second, third, fourth};
+        TicketsInformation[] actual = repository.getAll();
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void shouldNorFindIfMotMatchesQuery() {
-
-        String from = "FCO";
-        String to = "BCN";
-
-        repository.add(first);
-        repository.add(second);
-        repository.add(third);
-        repository.add(fourth);
-
-        TicketsInformation[] expected = new TicketsInformation[]{};
-        TicketsInformation[] actual = manager.findAll(from, to);
+    void shouldRemoveById() {
+        int id = 3;
+        TicketsInformation[] expected = new TicketsInformation[]{first, second, fourth};
+        TicketsInformation[] actual = repository.removeById(id);
+        assertArrayEquals(expected, actual);
     }
 }

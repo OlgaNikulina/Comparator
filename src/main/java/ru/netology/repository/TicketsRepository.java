@@ -3,7 +3,7 @@ package ru.netology.repository;
 import ru.netology.domain.TicketsInformation;
 
 public class TicketsRepository {
-    private TicketsInformation[] items = new TicketsInformation[0];
+    private TicketsInformation[] items = new TicketsInformation[]{};
 
     public void add(TicketsInformation item) {
         int length = items.length + 1;
@@ -15,15 +15,16 @@ public class TicketsRepository {
     }
 
     public TicketsInformation[] getAll() {
-        TicketsInformation[] result = new TicketsInformation[items.length];
+        int length = items.length;
+        TicketsInformation[] result = new TicketsInformation[length];
         for (int i = 0; i < result.length; i++) {
-            int index = items.length - i;
+            int index = items.length - 1;
             result[i] = items[index];
         }
         return result;
     }
 
-    public void removeById(int id) {
+    public TicketsInformation[] removeById(int id) {
         int length = items.length - 1;
         TicketsInformation[] tmp = new TicketsInformation[length];
         int index = 0;
@@ -34,5 +35,6 @@ public class TicketsRepository {
             }
         }
         items = tmp;
+        return tmp;
     }
 }
