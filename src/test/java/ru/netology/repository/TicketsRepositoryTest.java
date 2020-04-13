@@ -9,8 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TicketsRepositoryTest {
     private TicketsRepository repository = new TicketsRepository();
-    private TicketsManager manager = new TicketsManager(repository);
-    private TicketsManager[] ticket = new TicketsManager[]{};
 
     private TicketsInformation first = new TicketsInformation(1, 2000, "SVX", "BCN", 500);
     private TicketsInformation second = new TicketsInformation(2, 3000, "LED", "BCN", 400);
