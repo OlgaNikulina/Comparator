@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class TicketsInformation implements Comparable {
     private int id;
     private int price;
-    private String  from;
+    private String from;
     private String to;
     private int time;
 

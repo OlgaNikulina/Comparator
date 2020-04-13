@@ -1,4 +1,4 @@
-package ru.netology.domain.manager;
+package ru.netology.manager;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TicketsManagerTest {
     private TicketsRepository repository = new TicketsRepository();
-    private TicketsManager manager = new TicketsManager(repository);
     private TicketsManager[] ticket = new TicketsManager[]{};
 
     private TicketsInformation first = new TicketsInformation(1, 2000, "SVX", "BCN", 500);
@@ -21,8 +20,8 @@ class TicketsManagerTest {
     private TicketsInformation fourth = new TicketsInformation(4, 4500, "SVX", "BCN", 360);
 
     @Test
-    void shouldFindIfMatchesQuery(String search) {
-
+    void shouldFindIfMatchesQuery() {
+        TicketsManager manager = new TicketsManager(repository);
         String from = "SVX";
         String to = "BCN";
 
@@ -39,7 +38,7 @@ class TicketsManagerTest {
 
     @Test
     public void shouldNorFindIfMotMatchesQuery() {
-
+        TicketsManager manager = new TicketsManager(repository);
         String from = "FCO";
         String to = "BCN";
 
@@ -50,5 +49,7 @@ class TicketsManagerTest {
 
         TicketsInformation[] expected = new TicketsInformation[]{};
         TicketsInformation[] actual = manager.findAll(from, to);
+
+        assertArrayEquals(expected, actual);
     }
 }

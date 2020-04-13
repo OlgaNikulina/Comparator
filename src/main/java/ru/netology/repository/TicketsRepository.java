@@ -15,13 +15,7 @@ public class TicketsRepository {
     }
 
     public TicketsInformation[] getAll() {
-        int length = items.length;
-        TicketsInformation[] result = new TicketsInformation[length];
-        for (int i = 0; i < result.length; i++) {
-            int index = items.length - 1;
-            result[i] = items[index];
-        }
-        return result;
+        return items;
     }
 
     public TicketsInformation[] removeById(int id) {
