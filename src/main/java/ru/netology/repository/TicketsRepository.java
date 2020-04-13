@@ -23,7 +23,7 @@ public class TicketsRepository {
         return result;
     }
 
-    public void removeById(int id) {
+    public TicketsInformation[] removeById(int id) {
         int length = items.length - 1;
         TicketsInformation[] tmp = new TicketsInformation[length];
         int index = 0;
@@ -34,6 +34,7 @@ public class TicketsRepository {
             }
         }
         items = tmp;
+        return tmp;
     }
 }
 

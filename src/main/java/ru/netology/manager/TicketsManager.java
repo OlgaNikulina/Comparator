@@ -16,9 +16,9 @@ public class TicketsManager {
         TicketsInformation[] result = new TicketsInformation[0];
 
         for (TicketsInformation items : repository.getAll()) {
-            if (matches(items, from)&& matches(items, to)) {
+            if (matches(items, from) && matches(items, to)) {
                 TicketsInformation[] tmp = new TicketsInformation[result.length + 1];
-                System.arraycopy(items, 0, tmp, 0, result.length);
+                System.arraycopy(result, 0, tmp, 0, result.length);
                 tmp[tmp.length - 1] = items;
                 result = tmp;
             }
