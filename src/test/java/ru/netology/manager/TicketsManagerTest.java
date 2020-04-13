@@ -55,7 +55,7 @@ class TicketsManagerTest {
         repository.add(third);
         repository.add(fourth);
 
-        TicketsInformation[] expected = new TicketsInformation[]{fourth, second, first };
+        TicketsInformation[] expected = new TicketsInformation[]{fourth, second, first};
         TicketsInformation[] actual = manager.findAll("SVX", "BCN", (Comparator.comparing(information -> information.getTime())));
         assertArrayEquals(expected, actual);
     }
